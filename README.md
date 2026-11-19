@@ -22,7 +22,7 @@ Eksperimen membandingkan Vanilla AE, Sparse AE, VAE, Vanilla GAN, DCGAN, dan DDP
 
 ## Instalasi
 
-Gunakan Python 3.11. Eksperimen tersimpan dijalankan dengan Python 3.11.18, PyTorch 2.11.0+cu128, dan RTX 5050 Laptop GPU.
+Gunakan Python 3.11. Eksperimen tersimpan dijalankan dengan Python 3.11.18, PyTorch 2.11.0+cu128
 
 Jalankan perintah dari folder repositori yang berisi `experiment.ipynb` dan `requirements.txt`.
 
