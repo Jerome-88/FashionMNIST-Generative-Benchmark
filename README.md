@@ -9,32 +9,22 @@ Eksperimen membandingkan Vanilla AE, Sparse AE, VAE, Vanilla GAN, DCGAN, dan DDP
 | File | Isi |
 |---|---|
 | `experiment.ipynb` | Seluruh kode dan output eksperimen dalam satu notebook |
-| `src/models.py` | Enam model, classifier, dan decoder |
-| `src/data.py` | Download dataset dan pembagian train/validation/test |
-| `src/train.py` | Loss, validation, dan training per model |
-| `src/evaluate.py` | Metrik, percobaan classifier, dan pemeriksaan hasil |
-| `src/figures.py` | Lima gambar hasil yang diminta tugas |
-| `src/utils.py` | Seed, penyimpanan JSON, dan informasi environment |
+| `modular code/models.py` | Enam model, classifier, dan decoder |
+| `modular code/data.py` | Download dataset dan pembagian train/validation/test |
+| `modular code/train.py` | Loss, validation, dan training per model |
+| `modular code/evaluate.py` | Metrik, percobaan classifier, dan pemeriksaan hasil |
+| `modular code/figures.py` | Lima gambar hasil yang diminta tugas |
+| `modular code/utils.py` | Seed, penyimpanan JSON, dan informasi environment |
 | `run.py` | Menjalankan eksperimen dari terminal |
 | `config.json` | Pengaturan run 88 epoch |
 | `requirements.txt` | Versi library pada environment eksperimen |
 | `results/` | Metrik, catatan epoch, indeks split, dan grafik run yang sudah selesai |
 
-## Kenapa ada kode modular?
-
-Ketentuan tugas pada Bagian I meminta repositori memuat skrip modular PyTorch. Karena itu, fungsi dari notebook dipisahkan ke folder `src/` berdasarkan kegunaannya: data, model, training, evaluasi, plot, dan fungsi pendukung.
-
-Versi modular memakai model dan pengaturan yang sama dengan notebook. `run.py` menghubungkan modul-modul tersebut agar eksperimen bisa dijalankan dari terminal. Notebook tetap lengkap dan bisa dijalankan sendiri tanpa mengimpor `src/`. Hasil yang sudah tersimpan bisa dilihat tanpa menjalankan ulang salah satu versi.
-
 ## Instalasi
 
 Gunakan Python 3.11. Eksperimen tersimpan dijalankan dengan Python 3.11.18, PyTorch 2.11.0+cu128, dan RTX 5050 Laptop GPU.
 
-Dari root repositori:
-
-```powershell
-cd gslc2
-```
+Jalankan perintah dari folder repositori yang berisi `experiment.ipynb` dan `requirements.txt`.
 
 Jika membuat environment baru untuk GPU NVIDIA, pasang PyTorch CUDA terlebih dahulu:
 
@@ -97,8 +87,6 @@ Akurasi test classifier: 89,83%. Selengkapnya ada di [metrics.csv](results/metri
 
 Ini hasil satu seed pada gambar 28 x 28. Histogram prediksi classifier belum membuktikan seluruh variasi gambar tercakup. Pengujian mobile, data cacat, dan gambar resolusi tinggi belum dilakukan.
 
-Laporan: [Word](TUGAS_DL_SESI07_2802412894_JEROME_MAXCELLINO_B.docx) dan [PDF](TUGAS_DL_SESI07_2802412894_JEROME_MAXCELLINO_B.pdf). Ekspor ulang PDF dari Word jika naskah Word masih disunting.
-
 ## Sumber kode dan teori
 
 Notebook disusun untuk tugas ini dengan bantuan AI. Rujukan berikut dipakai untuk memeriksa implementasi dan rumus; kode ini bukan salinan utuh dari satu repositori.
@@ -110,5 +98,5 @@ Notebook disusun untuk tugas ini dengan bantuan AI. Rujukan berikut dipakai untu
 - [Implementasi diffusion OpenAI](https://github.com/openai/improved-diffusion/blob/main/improved_diffusion/gaussian_diffusion.py)
 - [FID TorchMetrics](https://lightning.ai/docs/torchmetrics/stable/image/frechet_inception_distance)
 
-Layer MLP, ukuran jaringan untuk 28 x 28, U-Net kecil, dan percobaan classifier disesuaikan untuk tugas ini. Referensi teori lengkap ada di laporan.
+Layer MLP, ukuran jaringan untuk 28 x 28, U-Net kecil, dan percobaan classifier disesuaikan untuk tugas ini.
 

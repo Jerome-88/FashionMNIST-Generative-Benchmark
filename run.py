@@ -1,5 +1,6 @@
 import argparse
 import json
+from importlib import import_module
 from pathlib import Path
 
 
@@ -19,11 +20,13 @@ def main():
 
     import torch
 
-    from src.data import load_data
-    from src.evaluate import audit, evaluate
-    from src.models import build_models
-    from src.train import train_model
-    from src.utils import environment, set_seed, write_json
+    load_data = import_module('modular code.data').load_data
+    evaluation = import_module('modular code.evaluate')
+    audit, evaluate = evaluation.audit, evaluation.evaluate
+    build_models = import_module('modular code.models').build_models
+    train_model = import_module('modular code.train').train_model
+    utils = import_module('modular code.utils')
+    environment, set_seed, write_json = utils.environment, utils.set_seed, utils.write_json
 
     cfg = json.loads((root / 'config.json').read_text(encoding='utf-8'))
     if args.epochs is not None:
